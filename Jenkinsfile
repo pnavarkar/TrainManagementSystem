@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent any     
 
     stages {
         stage('Hello') {
@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
         stage('Test') {
